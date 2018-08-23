@@ -1,0 +1,7 @@
+{
+  "pessoas": [
+        { "name":"neymar", "dicas":[ "jogador", "", "rico pra krai" ] },
+        { "name":"messi", "dicas":[ "jogador", "", "rico pra krai" ] },
+        { "name":"cr7", "dicas":[ "sou lindo", "", "rico pra krai" ] }
+    ]
+}
