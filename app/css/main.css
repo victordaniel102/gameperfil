@@ -29,12 +29,13 @@ body {
 }
 
 .play {
+	text-align: center;
 	width: 300px;
 	margin: auto;
 	margin-top: 50px;
 }
 .play button {
-	width: 300px;
+	width: 200px;
 	border-radius: 5px;
 	margin: auto;
 	padding: 10px;
@@ -44,7 +45,7 @@ body {
 	box-shadow: 0px 8px 0px 0px #6e8230;
 	outline: none;
 	cursor: pointer;
-	transition: all .5s;
+	transition: all .1s;
 	font-size: 30px;
     font-family: 'Calibri', sans-serif;
 	font-weight: bold;
