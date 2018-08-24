@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background-color:#202225;
+}
+
+.play {
+	width: 300px;
+	margin-left: 20px;
+	margin-top: 20px;
+	user-select: none;
+}
+.play button {
+	width: 100px;
+	border-radius: 5px;
+	margin: auto;
+	padding: 10px;
+	border: none;
+	color: #fff;
+	background-color: #99b644;
+	box-shadow: 0px 8px 0px 0px #6e8230;
+	outline: none;
+	cursor: pointer;
+	transition: all .1s;
+	font-size: 18px;
+    font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+}
+.play:hover button {
+	transform: scale(1.1)
+}

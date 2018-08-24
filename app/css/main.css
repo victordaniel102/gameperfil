@@ -2,28 +2,37 @@
     margin: 0;
     padding: 0;
 }
+
 body {
   background-color:#202225;
 }
+
 .logo {
 	margin-top: 150px;
 	color: #fff;
 	font-size: 80px;
     font-family: 'Calibri', sans-serif;
     font-weight: bold;
+    cursor: default; /* deixar o cursor default */
+    user-select: none; /* deixar texto da logo não selecionável */
 }
+
 .t-center {
 	text-align: center;
 }
+
 .red {
 	color: #c94728;
 }
+
 .blue {
 	color: #31999a;
 }
+
 .orange {
 	color: #f08f28;
 }
+
 .green {
 	color: #99b644;
 }
@@ -33,6 +42,7 @@ body {
 	width: 300px;
 	margin: auto;
 	margin-top: 50px;
+	user-select: none;
 }
 .play button {
 	width: 200px;
