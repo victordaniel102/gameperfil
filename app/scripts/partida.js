@@ -1,7 +1,4 @@
 class partida {
-  /**
-   * partida vai ser usada como paremetro por todas as outras classes
-  */
   constructor(qnt, valor) {
     this.qntParticipante = qnt;
     this.valorDaVitoria = valor;
@@ -9,11 +6,10 @@ class partida {
 
   iniciarPartida() {
     this.participante = new Array(this.qntParticipante);
-    
-    if (this.qntParticipante <= 4 && this.qntParticipante >= 2) {
-      for(var i = 0;  i < this.qntParticipante; i++){
-        this.participante[i] = new participante("pedro_"+i, i, 0);
-      }
+    for(x in Game.player.names){
+      this.participante[x] = new participante(Game.player.names[x], x, 0);
+      //lembrete pra lembrar de deletar o console log
+      console.log(this.participante[x])
     }
   }
 }
