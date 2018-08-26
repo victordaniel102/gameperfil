@@ -8,7 +8,12 @@ class partida {
   }
 
   iniciarPartida() {
-    // Game.randPerfil()
-    this.participante = new participante("pedro", 1, 0);
+    this.participante = new Array(this.qntParticipante);
+    
+    if (this.qntParticipante <= 4 && this.qntParticipante >= 2) {
+      for(var i = 0;  i < this.qntParticipante; i++){
+        this.participante[i] = new participante("pedro_"+i, i, 0);
+      }
+    }
   }
 }
