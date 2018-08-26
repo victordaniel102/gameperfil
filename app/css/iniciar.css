@@ -30,9 +30,32 @@ body {
 	font-weight: bold;
 }
 .play:hover button {
-	transform: scale(1.1)
+	transform: scale(1.05)
 }
-
+.togame {
+	width: 150px;
+	margin: auto;
+	margin-top: 50px;
+}
+.togame button {
+	width: 150px;
+	border-radius: 5px;
+	padding: 10px;
+	border: none;
+	color: #fff;
+	background-color: #7fa99b;
+	box-shadow: 0px 8px 0px 0px #394a51;
+	outline: none;
+	cursor: pointer;
+	transition: all .5s;
+	font-size: 18px;
+    font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+}
+.togame:hover button {
+	background-color: #8ea6b4;
+	box-shadow: 0px 8px 0px 0px #394a51;
+}
 .playerCard {
 	width: 200px;
 	margin: auto;
@@ -64,7 +87,17 @@ body {
 	padding: 5px;
 	color: #333;
 	position: absolute;
-	transform: translate(25px,-15px);
+	transform: translate(20px,-15px);
     font-family: 'Calibri', sans-serif;
     outline: none;
+}
+.header {
+	font-size: 30px;
+	color: #fff;
+    font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+}
+.players {
+	text-align: center;
+	margin-top: 35px;
 }
