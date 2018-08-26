@@ -1,3 +1,4 @@
+//isso n preciso explicar pq foi oque dani fez
 class partida {
   constructor(qnt, valor) {
     this.qntParticipante = qnt;
