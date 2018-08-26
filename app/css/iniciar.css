@@ -10,24 +10,12 @@ body {
 .play {
 	width: 300px;
 	margin-left: 20px;
-	margin-top: 20px;
+	margin-top: 0px;
 	user-select: none;
 }
-.play button {
-	width: 100px;
-	border-radius: 5px;
+.play svg {
+	width: 40px;
 	margin: auto;
-	padding: 10px;
-	border: none;
-	color: #fff;
-	background-color: #99b644;
-	box-shadow: 0px 8px 0px 0px #6e8230;
-	outline: none;
-	cursor: pointer;
-	transition: all .1s;
-	font-size: 18px;
-    font-family: 'Calibri', sans-serif;
-	font-weight: bold;
 }
 .play:hover button {
 	transform: scale(1.05)
@@ -99,5 +87,17 @@ body {
 }
 .players {
 	text-align: center;
-	margin-top: 35px;
+}
+
+.c1 {
+	background-color:#21aba5;
+	box-shadow:0px 8px 0px 0px #1d566e
+}
+.c2 {
+	background-color:#7da87b;
+	box-shadow: 0px 8px 0px 0px #326765
+}
+.c3 {
+	background-color:#76b39d ;
+	box-shadow:0px 8px 0px 0px #155e63
 }
