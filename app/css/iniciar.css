@@ -8,14 +8,14 @@ body {
 }
 
 .play {
-	width: 300px;
-	margin-left: 20px;
+	width: 40px;
 	margin-top: 0px;
 	user-select: none;
 }
 .play svg {
 	width: 40px;
-	margin: auto;
+	margin: 20px;
+	outline: none;
 }
 .play:hover button {
 	transform: scale(1.05)
@@ -52,7 +52,7 @@ body {
 	padding: 15px;
 	color: #333;
 	background-color: #fff;
-	box-shadow: 0px 8px 0px 0px rgb(180, 180, 180);
+	box-shadow: 0px 5px 0px 0px rgb(180, 180, 180);
 	position: relative;
 }
 .rd-color {
@@ -60,13 +60,15 @@ body {
 	padding: 5.5px;
 	border-radius: 5px;
 	background-color: #76dbd1;
-	box-shadow: 0px 8px 0px 0px #57a99a;
+	box-shadow: 0px 5px 0px 0px #57a99a;
 	position: absolute;
 	transform: translate(-15px, -15px);
 	border-bottom-right-radius: 0px;
 	border-top-right-radius: 0px;
     font-family: 'Calibri', sans-serif;
     font-weight: bold;
+    user-select: none;
+    cursor: default;
 }
 .rd-text {
 	width: 170px;
@@ -91,13 +93,13 @@ body {
 
 .c1 {
 	background-color:#21aba5;
-	box-shadow:0px 8px 0px 0px #1d566e
+	box-shadow:0px 5px 0px 0px #1d566e
 }
 .c2 {
 	background-color:#7da87b;
-	box-shadow: 0px 8px 0px 0px #326765
+	box-shadow: 0px 5px 0px 0px #326765
 }
 .c3 {
 	background-color:#76b39d ;
-	box-shadow:0px 8px 0px 0px #155e63
+	box-shadow:0px 5px 0px 0px #155e63
 }

@@ -30,6 +30,6 @@ function jogar(){
   		//lembrete pra lembrar de deletar o console log
 		console.log(this.iniciar);
 		this.iniciar.iniciarPartida();
-	}
+	}else console.error(null);
 }
 

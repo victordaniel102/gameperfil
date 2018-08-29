@@ -39,7 +39,7 @@ body {
 
 .play {
 	text-align: center;
-	width: 300px;
+	width: 200px;
 	margin: auto;
 	margin-top: 50px;
 	user-select: none;
@@ -61,5 +61,6 @@ body {
 	font-weight: bold;
 }
 .play:hover button {
-	transform: scale(1)
+	transform: translateY(4px);
+	box-shadow: 0px 4px 0px 0px #6e8230;
 }
