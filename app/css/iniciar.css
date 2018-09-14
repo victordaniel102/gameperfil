@@ -103,3 +103,66 @@ body {
 	background-color:#76b39d ;
 	box-shadow:0px 5px 0px 0px #155e63
 }
+
+.cards {
+	width: 90%;
+	max-width: 630px;
+	height: 350px;
+	display: flex;
+	margin: auto;
+	padding-top: 50px;
+}
+
+.card {
+	min-width: 200px;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 250px;
+	height: 350px;
+	position: relative;
+	background-image: url(../img/doodle.png);
+	background-position: right center;
+}
+.card-center {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	font-size: 50px;
+	color: #333;
+    font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(255,255,255,.5);
+	transition: all .5s;
+}
+.card:hover .card-center{
+	background-color: rgba(255,255,255,1);
+}
+.card:hover .number-top {
+	-webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.card-c {
+	background-position: center;
+}
+.card-l {
+	background-position: left top;
+}
+.card-center p {
+	padding-top: 5px;
+}
+.number-top {
+	transition: all .5s;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 40px;
+	font-weight: bold;
+	color: #333;
+    font-family: 'Calibri', sans-serif;
+}
