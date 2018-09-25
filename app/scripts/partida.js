@@ -18,7 +18,7 @@ class partida {
   }
 
   iniciarRodada(index, jogadores){
-    this.rodada = new Rodada(index, jogadores);
-    this.rodada.setInfos();
+    this.rodadas[index] = new Rodada(index, jogadores);
+    this.rodadas[index].setInfos();
   }
 }
