@@ -1,13 +1,11 @@
 class perfil {
-	constructor(nome, categoria, dicas){
-		this.nome = nome;
-		this.categoria = categoria;
-		this.dicas = dicas;
+	// pega os dados do json
+	constructor(){
+		this.fs = require('fs');
+	    this.banco = JSON.parse(this.fs.readFileSync("./dataBase/Data.json", "utf8"));
 	}
-	// pega o banco em json
-	banco(){
-		//packages
-	    this.fs = require('fs');
-	    this.banco = JSON.parse(fs.readFileSync("./dataBase/Data.json", "utf8"));
+
+	sortearPerfil(){
+		return this.banco.perfil.categoria.pessoas;
 	}
 }
