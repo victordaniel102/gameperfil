@@ -1,3 +1,14 @@
 {
-	"categorias":[ "pessoa", "ano", "objeto" ]
+  "perfil": {
+    "categorias": {
+      "pessoas": {
+        "neymar": ["Nasci em 5 de fevereiro de 1992.", "jogador"],
+        "messi": ["Nasci em 3 de março de 1989", "jogador"]
+      },
+      "lugar": {
+        "super mercado": ["vendo coisas", "jogador"],
+        "casa": ["Pessoas moram em mim :0", "sou pra casar"]
+      }
+    }
+  }
 }
