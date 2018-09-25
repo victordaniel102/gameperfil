@@ -6,11 +6,12 @@ class Rodada {
 		this.perfil = new perfil();
 	}
 
-	sortearPerfil(){
+	getPerfil(){
 		return this.perfil.sortearPerfil();
 	}
 
 	setInfos(){
+		//mudando o html
 		selectores.mediador.textContent = this.mediador.nome;
 		selectores.jogador.textContent = this.jogador.nome;
 	}
