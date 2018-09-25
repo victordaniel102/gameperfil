@@ -6,6 +6,10 @@ class perfil {
 	}
 
 	sortearPerfil(){
-		return this.banco.perfil.categoria.pessoas;
+		this.collection = this.banco.dados;
+		return this.collection[Math.floor(Math.random() * this.collection.length)].perfil; // formato categoria / nome / dicas
 	}
 }
+
+var b = new perfil();
+console.log(b.sortearPerfil());

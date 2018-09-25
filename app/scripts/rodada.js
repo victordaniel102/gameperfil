@@ -3,10 +3,11 @@ class Rodada {
 		this.mediador = jogadores[0];
 		this.jogador = jogadores[1];
 		this.numeroRodada = index;
+		this.perfil = new perfil();
 	}
 
 	sortearPerfil(){
-		return new perfil().sortearPerfil();
+		return this.perfil.sortearPerfil();
 	}
 
 	setInfos(){
@@ -19,10 +20,6 @@ class Rodada {
 	}
 
 	tentarAcerto(){
-		//coming soon
-	}
-
-	proximaRodada(){
 		//coming soon
 	}
 }
