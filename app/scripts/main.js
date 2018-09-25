@@ -1,4 +1,3 @@
-
 //congifurações
 var Game = {
         player: {
@@ -6,13 +5,15 @@ var Game = {
         },
         score: 10
     },
-    sort, x,
+    sort, x, c = true,
     //seletores
     selectores = {
         jogar: document.querySelector('.togame'),
         players: document.querySelectorAll('.rd-text'),
         mediador: document.querySelector('.mediador'),
         jogador: document.querySelector('.jogador'),
+        cards: document.querySelector('.cards'),
+        flipper: document.querySelectorAll('.flipper'),
         pLength: function () {
             return this.players.length
         }
@@ -22,10 +23,14 @@ var Game = {
         cartas: function () {
             document.querySelector('.cartas').style.display = '';
             document.querySelector('.players').style.display = 'none';
-        }
+        },
+        cardFlip: function(name){
+            name.style.transform = "rotateY(180deg)";
+        }   
     }
 //eventos
 selectores.jogar.addEventListener('click', jogar); // <-- o evento declaro em hidden
+selectores.flipper.forEach((name, index) => name.addEventListener('click', () => { if(c){anim.cardFlip(name)}c=false}));
 //pega os nomes e da init no class partida
 function jogar() {
     sort = 0;
