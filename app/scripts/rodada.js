@@ -1,5 +1,5 @@
 class rodada {
-	constructor(index, jogadores){
+	constructor(jogadores){
 		this.finalizada = false;
 		this.perfil;
 		this.dicasUsadas = [];

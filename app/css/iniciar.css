@@ -233,3 +233,17 @@ body {
 .c-oragne {
 	color: orange;
 }
+.dicas {
+	color: #fff;
+	padding-top: 50px;
+	font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+	text-align: left;
+	width: 800px;
+	margin: auto;
+}
+.dica-text {
+	margin-top: 10px;
+	font-size: 20px;
+	user-select: none;
+}

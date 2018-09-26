@@ -6,17 +6,9 @@ class Ui
         this.clikar_cartas = true;
     }
 
-    sel(element)
+    init()
     {
-        this.el = document.querySelectorAll(element);
-        if (this.el.length == 1) this.el = this.el[0];
-        //retorna o elemento
-        return this.el;
-    }
-
-    //seta os eventos
-    eventos()
-    {
+        //iicia todos os eventos
         for (let i = 0; i < 3; i++)
         {
             this.sel('.flipper')[i].addEventListener('click', () =>
@@ -31,15 +23,33 @@ class Ui
         });
     }
 
+    sel(element)
+    {
+        this.el = document.querySelectorAll(element);
+        if (this.el.length == 1) this.el = this.el[0];
+        //retorna o elemento do doom que foi requerido
+        return this.el;
+    }
+
     //muda as informações do html
     setHtml(mediador, jogador, perfil)
     {
         this.sel('.mediador').textContent = mediador.nome;
         this.sel('.jogador').textContent = jogador.nome;
 
+        //informações de categoria e nome <-- 3 cartas
         for(let i = 0; i < 3; i++){
             this.sel('.categoria')[i].textContent = perfil.categoria;
             this.sel('.resposta')[i].textContent = perfil.nome;
+        }
+        //dicas
+        for(let x in perfil.dicas){
+            let append = this.sel('.d-container');
+            let el = document.createElement('p');
+                el.classList.add('dica-text');
+                el.textContent = perfil.dicas[x].texto;
+
+            append.appendChild(el);
         }
     }
 
@@ -75,15 +85,10 @@ class Ui
         this.sel('.players').style.display = 'none';
     }
 
-    //gira a carta
+    //gira a carta e mostra as dicas com o perfil
     cardFlip(el)
     {
         el.style.transform = "rotateY(180deg)";
-    }
-
-    //onload
-    init()
-    {
-        this.eventos();
+        this.sel('.dicas').style.transform = 'scale(1)';
     }
 }
