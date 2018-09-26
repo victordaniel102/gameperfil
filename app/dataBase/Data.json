@@ -3,17 +3,20 @@
         {
           "perfil":
             {
-              "categoria": "pessoa",
-              "nome": "neymar",
-              "dicas": ["sou rico", "sou foda"]
-            }
-        },
-        {
-          "perfil":
-            {
-              "categoria": "lugar",
-              "nome": "casa",
-              "dicas": ["sou grande", "blablas te otero"]
+              "categoria": "Pessoa",
+              "nome": "Neymar",
+              "dicas": [
+                "Nasci em 5 de fevereiro de 1992.", 
+                "Iniciei na minha profissão quando era criança.", 
+                "Já estrelei inúmeras propagandas na TV.",
+                "Sou Júnior, mas apenas no nome.",
+                "Os meninos adoram imitar meus cortes de cabelo.",
+                "Sou o pai do Davi Lucca.",
+                "Em 2013, fui para o Barcelona.",
+                "Meu namoro com a atriz Bruna Marquezine causou frenesi na imprensa.",
+                "9",
+                "1O"
+              ]
             }
         }
     ]

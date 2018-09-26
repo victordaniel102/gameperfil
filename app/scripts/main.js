@@ -1,4 +1,5 @@
 //congifurações
+// @esse script só serve como uma bliblioteca de doom e fuuções
 var Game = {
         player: {
             names: []
@@ -14,6 +15,8 @@ var Game = {
         jogador: document.querySelector('.jogador'),
         cards: document.querySelector('.cards'),
         flipper: document.querySelectorAll('.flipper'),
+        categoria: document.querySelectorAll('.categoria'),
+        resposta: document.querySelectorAll('.resposta'),
         pLength: function () {
             return this.players.length
         }
