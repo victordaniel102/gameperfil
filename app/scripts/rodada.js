@@ -13,8 +13,8 @@ class rodada {
     	const fs = require('fs');
 	    const banco = JSON.parse(fs.readFileSync("./dataBase/Data.json", "utf8"));
 	    
-		var collection = banco.dados;
-		collection = collection[Math.floor(Math.random() * collection.length)].perfil;
+		var collection = banco.perfis;
+		collection = collection[Math.floor(Math.random() * collection.length)];
 
 		for(let i = 0; i < collection.dicas.length; i++){
 			this.dicasUsadas[i] = new dica(i, collection.dicas[i]);
