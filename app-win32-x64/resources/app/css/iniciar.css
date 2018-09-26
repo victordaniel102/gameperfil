@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background-color:#202225;
+}
+
+.play {
+	width: 40px;
+	margin-top: 0px;
+	user-select: none;
+}
+.play svg {
+	width: 40px;
+	margin: 20px;
+	outline: none;
+}
+.play:hover button {
+	transform: scale(1.05)
+}
+.togame {
+	width: 150px;
+	margin: auto;
+	margin-top: 50px;
+}
+.togame button {
+	width: 150px;
+	border-radius: 5px;
+	padding: 10px;
+	border: none;
+	color: #fff;
+	background-color: #7fa99b;
+	box-shadow: 0px 8px 0px 0px #394a51;
+	outline: none;
+	cursor: pointer;
+	transition: all .5s;
+	font-size: 18px;
+    font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+}
+.togame:hover button {
+	background-color: #8ea6b4;
+	box-shadow: 0px 8px 0px 0px #394a51;
+}
+.playerCard {
+	width: 200px;
+	margin: auto;
+	margin-top: 30px;
+	border-radius: 5px;
+	padding: 15px;
+	color: #333;
+	background-color: #fff;
+	box-shadow: 0px 5px 0px 0px rgb(180, 180, 180);
+	position: relative;
+}
+.rd-color {
+	width: 20px;
+	padding: 5.5px;
+	border-radius: 5px;
+	background-color: #76dbd1;
+	box-shadow: 0px 5px 0px 0px #57a99a;
+	position: absolute;
+	transform: translate(-15px, -15px);
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+    font-family: 'Calibri', sans-serif;
+    font-weight: bold;
+    user-select: none;
+    cursor: default;
+}
+.rd-text {
+	width: 170px;
+	max-height: 20px;
+	overflow: hidden;
+	padding: 5px;
+	color: #333;
+	position: absolute;
+	transform: translate(20px,-15px);
+    font-family: 'Calibri', sans-serif;
+    outline: none;
+}
+.header {
+	font-size: 30px;
+	color: #fff;
+    font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+}
+.sub-head {
+	font-size: 20px;
+	color: #fff;
+    font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+}
+.players {
+	text-align: center;
+}
+.cartas {
+	text-align: center;
+}
+.c1 {
+	background-color:#21aba5;
+	box-shadow:0px 5px 0px 0px #1d566e
+}
+.c2 {
+	background-color:#7da87b;
+	box-shadow: 0px 5px 0px 0px #326765
+}
+.c3 {
+	background-color:#76b39d ;
+	box-shadow:0px 5px 0px 0px #155e63
+}
+
+.cards {
+	width: 90%;
+	max-width: 900px;
+	height: 350px;
+	display: flex;
+	margin: auto;
+	padding-top: 50px;
+}
+
+.card {
+	min-width: 150px;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 250px;
+	height: 350px;
+	position: relative;
+	background-image: url(../img/doodle.png);
+	background-position: right center;
+}
+.card-center {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	font-size: 50px;
+	color: #333;
+    font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(255,255,255,.5);
+	transition: all .5s;
+}
+.card:hover .card-center{
+	background-color: rgba(255,255,255,1);
+}
+.card:hover .number-top {
+	-webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.card-c {
+	background-position: center;
+}
+.card-l {
+	background-position: left top;
+}
+.card-center p {
+	padding-top: 5px;
+}
+.number-top {
+	transition: all .5s;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 40px;
+	font-weight: bold;
+	color: #333;
+    font-family: 'Calibri', sans-serif;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+  -webkit-perspective: 1000;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+/* flip the pane when clicked */
+.flip-container, .front, .back {
+	min-width: 150px;
+	cursor: pointer;
+	width: 250px;
+	height: 350px;
+	position: relative;
+	background-position: right center;
+}
+
+/* flip speed goes here */
+.flipper {
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 5px;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+  -webkit-transform: rotateY(180deg);
+}
+
+.table {
+	font-size: 25px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 3px;
+	background-color: rgba(0,0,0,.4);
+}
+.c-oragne {
+	color: orange;
+}
+.dicas {
+	color: #fff;
+	padding-top: 50px;
+	font-family: 'Calibri', sans-serif;
+	font-weight: bold;
+	text-align: left;
+	width: 800px;
+	margin: auto;
+}
+.dica-text {
+	margin-top: 10px;
+	font-size: 20px;
+	user-select: none;
+}

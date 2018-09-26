@@ -1,0 +1,130 @@
+{
+  "perfis": [
+    {
+      "categoria": "pessoas",
+      "nome": "Neymar",
+      "dicas": [
+        "Nasci em 5 de fevereiro de 1992.",
+        "Iniciei na minha profissão quando era criança.",
+        "Já estrelei inúmeras propagandas na TV.",
+        "Sou Júnior, mas apenas no nome.",
+        "Os meninos adoram imitar meus cortes de cabelo.",
+        "Sou o pai do Davi Lucca.",
+        "Em 2013, fui para o Barcelona.",
+        "Meu namoro com a atriz Bruna Marquezine causou frenesi na imprensa."
+      ]
+    },
+    {
+      "categoria": "pessoas",
+      "nome": "Lula",
+      "dicas": [
+        "Tenho apenas 19 dedos.",
+        "Nasci em Pernambuco.",
+        "O triplex não é meu.",
+        "Me barraram na eleição de 2018.",
+        "Fui o quinto presidente da república.",
+        "Vim para São Paulo num pau de arara.",
+        "Fui preso na ditadura.",
+        "Gosto de chamar as pessoas de companheiro."
+      ]
+    },
+    {
+      "categoria": "pessoas",
+      "nome": "Silvio Santos",
+      "dicas": [
+        "Sou muito rico.",
+        "Já trabalhei como camelo.",
+        "Já fui locutor de rádio.",
+        "Sou judeu.",
+        "Tenho quatro filhas.",
+        "Já tive um banco.",
+        "Tenho uma emissora.",
+        "Jogo aviõezinhos de dinheiro."
+      ]
+    },
+    {
+      "categoria": "Lugar",
+      "nome": "Supermercado",
+      "dicas": [
+        "Vendo coisas.",
+        "Existo no mundo inteiro.",
+        "Tenho muitas sessões.",
+        "As pessoas frequentemente precisão vir até mim.",
+        "Em feriados costumo ter grandes filas.",
+        "Tenho carrinhos.",
+        "Tenho cartilha de ofertas.",
+        "As pessoas veem até mim dizendo que estão indo fazer a feira."
+      ]
+    },
+    {
+      "categoria": "Lugar",
+      "nome": "Biblioteca",
+      "dicas": [
+        "As pessoas precisam fazer silêncio quando estão aqui.",
+        "As maiores de mim são separas em categorias.",
+        "Já fui motivo de censura.",
+        "Tenho grandes estantes.",
+        "Estou presente em instituições de ensino.",
+        "As pessoas vêm até mim para estudar.",
+        "Em final de semestre sou lotada.",
+        "Eu empresto livros."
+      ]
+    },
+    {
+      "categoria": "Lugar",
+      "nome": "Shopping",
+      "dicas": [
+        "Movimento muito dinheiro.",
+        "Vendo coisas.",
+        "Muitas vezes tem cinemas dentro de mim.",
+        "Tenho várias lojas.",
+        "Tenho estacionamento.",
+        "Milhares de pessoas trabalham dentro de mim.",
+        "Tenho escadas rolantes.",
+        "Em 2013 fiquei lotado por causa de encontros chamados de rolezinho."
+      ]
+    },
+    {
+      "categoria": "animal",
+      "nome": "Tamanduá",
+      "dicas": [
+        "Sou um quadrupede.",
+        "Como formigas.",
+        "Tenho um focinho longo e fino.",
+        "Tenho grandes garras.",
+        "Me locomovo vagarosamente.",
+        "Sou um mamífero.",
+        "Tenho uma língua enorme.",
+        "Meço cerca de 60 cm de altura."
+      ]
+    },
+    {
+      "categoria": "animal",
+      "nome": "Canguru",
+      "dicas": [
+        "Sou um mamífero.",
+        "A maioria dos meus vive na Austrália.",
+        "Me locomovo através de saltos.",
+        "Carrego meus filhotes numa bolsa.",
+        "Tenho uma cabeça pequena e orelhas compridas.",
+        "Uso minha calda como uma terceira perna.",
+        "Eu sou conhecido como um animal boxeador.",
+        "Posso chegar a medir até dois metros."
+      ]
+    },
+    {
+      "categoria": "animal",
+      "nome": "Bicho preguiça",
+      "dicas": [
+        "Sou um dos animais mais lentos do mundo.",
+        "Sou um mamífero.",
+        "Sou herbívoro.",
+        "Não bebo água.",
+        "Vivo sozinho.",
+        "Tenho garras afiadas.",
+        "Vivo pendurado em arvores.",
+        "Minha cabeça gira 270°."
+      ]
+    }
+  ]
+}

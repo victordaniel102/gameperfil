@@ -1,0 +1,4 @@
+a pasta chamada "app" fica a parte de codigo em desenvolvimento
+
+esse execultavel abre o projeto apartir dessas fontes de dados do app, ou seja.. 
+pra ver o programa use o executavel "GamePerfil", já para ler o código va na pasta app la tem todas as classes e o banco
