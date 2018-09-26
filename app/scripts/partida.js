@@ -12,8 +12,11 @@ class partida{
 
     for(let x in this.nomes){
       this.participante[x] = new participante(this.nomes[x], x, 0);
-      console.log(this.participante[x]);
     }
+    //====================
+    console.log(this.participante); // <--- debug
+    //====================
+
     // apartir de agora a Partida esta em andamento
     this.iniciarRodada();
   }

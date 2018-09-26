@@ -3,14 +3,9 @@ class rodada {
 		this.finalizada = false;
 		this.perfil;
 		this.dicasUsadas = [];
-		this.dicas = [];
 
 		this.mediador = jogadores[0];
 		this.jogador = jogadores[1];
-
-		this.numeroRodada = index;
-		this.perfil = new perfil();
-		this.finalizada = false;
 	}
 
 	sortearPerfil(){
@@ -22,13 +17,13 @@ class rodada {
 		collection = collection[Math.floor(Math.random() * collection.length)].perfil;
 
 		for(let i = 0; i < collection.dicas.length; i++){
-			this.dicas[i] = new dica(i, collection.dicas[i]);
+			this.dicasUsadas[i] = new dica(i, collection.dicas[i]);
 		}
 		//define o perfil
-		this.perfil = new perfil(collection.categoria, collection.nome, this.dicas);
+		this.perfil = new perfil(collection.categoria, collection.nome, this.dicasUsadas);
 
 		//envia as informações pra ui
-		new Ui().setHtml(this.mediador, this.jogador);
+		new Ui().setHtml(this.mediador, this.jogador, this.perfil);
 	}
 
   	iniciarRodada(){

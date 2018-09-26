@@ -1,57 +1,89 @@
-class Ui {
-    constructor(){
+class Ui
+{
+    constructor()
+    {
         this.player_names = [];
         this.clikar_cartas = true;
     }
 
-    sel(element){
+    sel(element)
+    {
         this.el = document.querySelectorAll(element);
         if (this.el.length == 1) this.el = this.el[0];
         //retorna o elemento
         return this.el;
     }
 
-    eventos(){
-        var verif = this.clikar_cartas;
-        // this.flipper.forEach(function(name, index){name.addEventListener('click', () => { if(verif){Show(name)}verif = false})});
-        this.sel('.togame').addEventListener('click', () => this.clickJogar(this.sel('.rd-text')));
+    //seta os eventos
+    eventos()
+    {
+        for (let i = 0; i < 3; i++)
+        {
+            this.sel('.flipper')[i].addEventListener('click', () =>
+            {
+                if (this.clikar_cartas) this.cardFlip(this.sel('.flipper')[i]);
+                this.clikar_cartas = false;
+            });
+        }
+        this.sel('.togame').addEventListener('click', () =>
+        {
+            this.clickJogar(this.sel('.rd-text'))
+        });
     }
 
-    setHtml(mediador, jogador){
-        this.sel('.mediador').innerHTML = mediador.nome;
-        this.sel('.jogador').innerHTML = jogador.nome;
+    //muda as informações do html
+    setHtml(mediador, jogador, perfil)
+    {
+        this.sel('.mediador').textContent = mediador.nome;
+        this.sel('.jogador').textContent = jogador.nome;
+
+        for(let i = 0; i < 3; i++){
+            this.sel('.categoria')[i].textContent = perfil.categoria;
+            this.sel('.resposta')[i].textContent = perfil.nome;
+        }
     }
 
-    clickJogar(el){
-       var sort = 0;
-        for (var i = 0; i < el.length; i++) {
-            if (el[i].textContent) {
+    //botao que da boot na partida
+    clickJogar(el)
+    {
+        var sort = 0;
+        for (var i = 0; i < el.length; i++)
+        {
+            if (el[i].textContent)
+            {
                 this.player_names[sort] = el[i].textContent;
                 sort++;
             }
         }
-        if (sort >= 2) {
+        if (sort >= 2)
+        {
             let qtd = sort;
             let iniciar = new partida(qtd);
-            //lembrar de tirar isso
-            console.log(iniciar);
-
+            //====================
+            console.log(iniciar); // <--- debug
+            //====================
             iniciar.iniciarPartida(this.player_names);
             this.showCartas();
+        }
+        else console.error('numero de participantes invalido');
+    }
 
-        }else console.error('numero de participantes invalido');
-    }   
-
-    showCartas() {
+    //mostra a proxima tela
+    showCartas()
+    {
         this.sel('.cartas').style.display = '';
         this.sel('.players').style.display = 'none';
     }
 
-    cardFlip(name){
-        name.style.transform = "rotateY(180deg)";
+    //gira a carta
+    cardFlip(el)
+    {
+        el.style.transform = "rotateY(180deg)";
     }
 
-    init(){
+    //onload
+    init()
+    {
         this.eventos();
     }
 }
