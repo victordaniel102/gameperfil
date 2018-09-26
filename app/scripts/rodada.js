@@ -30,8 +30,6 @@ class rodada {
 
   	iniciarRodada(){
   		this.sortearPerfil();
-		// //informa os dados ao usuario na interface
-		// this.setHtml();
     }
 
 	finalziarRodada(){

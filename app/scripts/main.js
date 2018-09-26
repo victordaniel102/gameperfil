@@ -1,5 +1,3 @@
-//congifurações
-// @esse script só serve como uma bliblioteca de doom e fuuções
 class Ui{
     constructor(){
         this.player_names = [];
@@ -10,8 +8,8 @@ class Ui{
         //components 
         this.jogar = document.querySelector('.togame');
         this.players_input = document.querySelectorAll('.rd-text');
-        this.mediador = document.querySelector('.mediador');
-        this.jogador = document.querySelector('.jogador');
+        const mediador = document.querySelector('.mediador');
+        const jogador = document.querySelector('.jogador');
         this.cards = document.querySelector('.cards');
         this.flipper = document.querySelectorAll('.flipper');
         this.categoria = document.querySelectorAll('.categoria');
@@ -21,27 +19,23 @@ class Ui{
     }
 
     eventos(){
-        // flipper.forEach(function(name, index){name.addEventListener('click', () => { if(c){cardFlip(name)}this.clikar_cartas=false})});
-        this.jogar.addEventListener('click', () => this.click_jogar(this.players_input));
+        var verif = this.clikar_cartas;
+        // this.flipper.forEach(function(name, index){name.addEventListener('click', () => { if(verif){Show(name)}verif = false})});
+        this.jogar.addEventListener('click', () => this.clickJogar(this.players_input));
     }
 
-    setHtml(){
-        mediador.textContent = this.mediador.nome;
-        jogador.textContent = this.jogador.nome;
-        
-        resposta.forEach((nome, index) =>{
-            //categoria
-            selectores.categoria[index].textContent = this.perfil.categoria;
-            //resposta
-            selectores.resposta[index].textContent = this.perfil.nome;
-        });
-    }
+    // setHtml(mediador, jogador){
+    //     mediador.textContent = mediador.nome;
+    //     jogador.textContent = jogador.nome;
+    // }
 
-    click_jogar(el){
+    clickJogar(el){
        var sort = 0;
         for (var i = 0; i < el.length; i++) {
-               this.player_names[sort] = el[i].textContent;
+            if (el[i].textContent) {
+                this.player_names[sort] = el[i].textContent;
                 sort++;
+            }
         }
         if (sort >= 2) {
             let qtd = sort;
@@ -50,14 +44,14 @@ class Ui{
             console.log(iniciar);
 
             iniciar.iniciarPartida(this.player_names);
-            // this.cartas();
+            this.showCartas();
 
-        } else console.error('numero de participantes invalido');
-    }
+        }else console.error('numero de participantes invalido');
+    }   
 
-    cartas() {
-        cartas.style.display = '';
-        players.style.display = 'none';
+    showCartas() {
+        this.cartas.style.display = '';
+        this.players.style.display = 'none';
     }
 
     cardFlip(name){
@@ -69,6 +63,3 @@ class Ui{
         this.eventos();
     }
 }
-//onclick Jogar
-
-//onclick Animação carta
