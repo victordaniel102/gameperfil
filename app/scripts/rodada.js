@@ -1,12 +1,26 @@
-class rodada{
-    constructor(finalizada, perfil, dicasUtilizadas, jogadorDaVez, mediador){
-        this.finalizada = finalizada;
-        this.perfil = perfil;
-        this.dicasUtilizadas = dicasUtilizadas;
-        this.jogadorDaVez = jogadorDaVez;
-        this.mediador = mediador;
-    }
-    iniciarRodada(){
-        
-    }
+class Rodada {
+	constructor(index, jogadores){
+		this.mediador = jogadores[0];
+		this.jogador = jogadores[1];
+		this.numeroRodada = index;
+		this.perfil = new perfil();
+	}
+
+	getPerfil(){
+		return this.perfil.sortearPerfil();
+	}
+
+	setInfos(){
+		//mudando o html
+		selectores.mediador.textContent = this.mediador.nome;
+		selectores.jogador.textContent = this.jogador.nome;
+	}
+
+	finalziarRodada(){
+		//coming soon
+	}
+
+	tentarAcerto(){
+		//coming soon
+	}
 }

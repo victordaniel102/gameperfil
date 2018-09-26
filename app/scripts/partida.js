@@ -1,16 +1,24 @@
-//isso n preciso explicar pq foi oque dani fez
 class partida {
   constructor(qnt, valor) {
     this.qntParticipante = qnt;
     this.valorDaVitoria = valor;
+    this.rodadas = [];
   }
 
-  iniciarPartida() {
+  iniciarPartida(Game) {
     this.participante = new Array(this.qntParticipante);
-    for(x in Game.player.names){
-      this.participante[x] = new participante(Game.player.names[x], x, 0);
-      //lembrete pra lembrar de deletar o console log
-      console.log(this.participante[x])
+    this.nomes = Game.player.names.sort((a, b) => { return 0.5 - Math.random() });
+
+    for(let x in this.nomes){
+      this.participante[x] = new participante(this.nomes[x], x, 0);
+      console.log(this.participante[x]); // estou deixando o log novamente para o senhor poder visualizar o andamento
     }
+    //inicia primeira rodada
+    this.iniciarRodada(1, this.participante);
+  }
+
+  iniciarRodada(index, jogadores){
+    this.rodadas[index] = new Rodada(index, jogadores);
+    this.rodadas[index].setInfos();
   }
 }

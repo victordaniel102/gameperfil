@@ -1,3 +1,20 @@
 {
-	"categorias":[ "pessoa", "ano", "objeto" ]
+  "dados": [
+        {
+          "perfil":
+            {
+              "categoria": "pessoa",
+              "nome": "neymar",
+              "dicas": ["sou rico", "sou foda"]
+            }
+        },
+        {
+          "perfil":
+            {
+              "categoria": "lugar",
+              "nome": "casa",
+              "dicas": ["sou grande", "blablas te otero"]
+            }
+        }
+    ]
 }
