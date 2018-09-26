@@ -1,5 +1,5 @@
 class dica{
-    constructor(numero){
+    constructor(numero, texto){
         this.numero = numero;
         this.texto = texto;
     }
