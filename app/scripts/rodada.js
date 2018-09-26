@@ -6,8 +6,7 @@ class rodada {
 
 		this.mediador = jogadores[0];
 		this.jogador = jogadores[1];
-<<<<<<< HEAD
-=======
+
 		this.numeroRodada = index;
 		this.perfil = new perfil();
 		this.finalizada = false;
@@ -15,7 +14,6 @@ class rodada {
 
 	getPerfil(){
 		return this.perfil.sortearPerfil();
->>>>>>> c32184c58c99c1781bb448d8d8dab8d445f2f617
 	}
 
 	setHtml(){
