@@ -26,6 +26,9 @@ class rodada {
 		}
 		//define o perfil
 		this.perfil = new perfil(collection.categoria, collection.nome, this.dicas);
+
+		//envia as informações pra ui
+		new Ui().setHtml(this.mediador, this.jogador);
 	}
 
   	iniciarRodada(){

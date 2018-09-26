@@ -1,4 +1,4 @@
-class partida {
+class partida{
   constructor(qnt) {
     this.qntParticipante = qnt;
     this.valorDaVitoria = 10;
@@ -18,10 +18,11 @@ class partida {
     this.iniciarRodada();
   }
 
+
   iniciarRodada(){
     //ate agora só tem uma rodada entao...
     this.rodadas[1] = new rodada(1, this.participante);
     this.rodadas[1].iniciarRodada();
-    console.log(this.rodadas[1])
+    console.log(this.rodadas[1]);
   }
 }
