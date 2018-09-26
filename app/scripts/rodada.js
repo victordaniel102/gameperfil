@@ -6,6 +6,16 @@ class rodada {
 
 		this.mediador = jogadores[0];
 		this.jogador = jogadores[1];
+<<<<<<< HEAD
+=======
+		this.numeroRodada = index;
+		this.perfil = new perfil();
+		this.finalizada = false;
+	}
+
+	getPerfil(){
+		return this.perfil.sortearPerfil();
+>>>>>>> c32184c58c99c1781bb448d8d8dab8d445f2f617
 	}
 
 	setHtml(){
@@ -36,7 +46,7 @@ class rodada {
     }
 
 	finalziarRodada(){
-		//coming soon
+		this.finalizada = true;
 	}
 
 	tentarAcerto(dica, jogador){
