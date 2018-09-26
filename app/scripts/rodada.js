@@ -4,6 +4,7 @@ class Rodada {
 		this.jogador = jogadores[1];
 		this.numeroRodada = index;
 		this.perfil = new perfil();
+		this.finalizada = false;
 	}
 
 	getPerfil(){
@@ -17,7 +18,7 @@ class Rodada {
 	}
 
 	finalziarRodada(){
-		//coming soon
+		this.finalizada = true;
 	}
 
 	tentarAcerto(){

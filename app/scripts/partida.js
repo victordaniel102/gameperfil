@@ -3,6 +3,7 @@ class partida {
     this.qntParticipante = qnt;
     this.valorDaVitoria = valor;
     this.rodadas = [];
+    this.participante;
   }
 
   iniciarPartida(Game) {
