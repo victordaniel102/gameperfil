@@ -2,8 +2,8 @@ class Ui
 {
     constructor()
     {
-        this.player_names = [];
         this.clikar_cartas = true;
+        this.turno = 0;
     }
 
     init()
@@ -25,10 +25,56 @@ class Ui
 
     sel(element)
     {
-        this.el = document.querySelectorAll(element);
-        if (this.el.length == 1) this.el = this.el[0];
+        var el = document.querySelectorAll(element);
+        if (el.length == 1) el = el[0];
         //retorna o elemento do doom que foi requerido
-        return this.el;
+        return el;
+    }
+
+    //botao que da boot na partida
+    clickJogar(el)
+    {
+        var sort = 0, player_names = [];
+        for (var i = 0; i < el.length; i++)
+        {
+            if (el[i].textContent)
+            {
+                player_names[sort] = el[i].textContent;
+                sort++;
+            }
+        }
+        if (sort >= 2)
+        {
+            this.partida = new partida(player_names);
+            this.partida.iniciarPartida();
+            this.showCartas();
+            this.setRodada();
+        }
+        else console.error('numero de participantes invalido');
+    }
+
+    setRodada(){
+        this.partida.iniciarRodada(this.turno);
+        this.rodada = this.partida.rodadas[this.turno];
+        this.setHtml(
+            this.rodada.mediador,  
+            this.rodada.jogador, 
+            this.rodada.perfil
+        );
+    }
+
+    errada(el, p){
+        el.classList.add('errada');
+        this.update();
+    }
+
+    correta(el){
+        el.classList.add('correta');
+        this.turno++;
+        this.update();
+
+        this.rodada.finalziarRodada();
+        this.setRodada();
     }
 
     //muda as informações do html
@@ -42,40 +88,8 @@ class Ui
             this.sel('.categoria')[i].textContent = perfil.categoria;
             this.sel('.resposta')[i].textContent = perfil.nome;
         }
-        //dicas
-        for(let x in perfil.dicas){
-            let append = this.sel('.d-container');
-            let el = document.createElement('p');
-                el.classList.add('dica-text');
-                el.textContent = perfil.dicas[x].texto;
-
-            append.appendChild(el);
-        }
-    }
-
-    //botao que da boot na partida
-    clickJogar(el)
-    {
-        var sort = 0;
-        for (var i = 0; i < el.length; i++)
-        {
-            if (el[i].textContent)
-            {
-                this.player_names[sort] = el[i].textContent;
-                sort++;
-            }
-        }
-        if (sort >= 2)
-        {
-            let qtd = sort;
-            let iniciar = new partida(qtd);
-            //====================
-            console.log(iniciar); // <--- debug
-            //====================
-            iniciar.iniciarPartida(this.player_names);
-            this.showCartas();
-        }
-        else console.error('numero de participantes invalido');
+        // //dicas
+        this.dicas = perfil.dicas;
     }
 
     //mostra a proxima tela
@@ -89,6 +103,52 @@ class Ui
     cardFlip(el)
     {
         el.style.transform = "rotateY(180deg)";
-        this.sel('.dicas').style.transform = 'scale(1)';
+        this.showDicas();
+    }
+
+    //cria as dicas
+    showDicas(){
+        var c = this.sel('.dicas-flex'); 
+        this.dicas.forEach((e, i) => {
+           var el = `<div class="dica-item" data-dica="${e.texto}">${++i}</div>`;
+           c.innerHTML += el;
+       });
+
+        c.addEventListener('click', (e) =>{
+            if(e.target.classList.contains('dica-item') && !e.target.classList.contains('errada'))
+                this.sel('.dicas-flex .dica-item').forEach((el) =>{
+                    if(e.target === el) {
+                        el.style.width =  '100%';
+                        el.textContent = el.getAttribute('data-dica');
+                        el.innerHTML += 
+                        `<div class="controls">
+                            <span data-type="e">
+                                <img src="img/errado.png">
+                            </span> 
+                            <span data-type="c">
+                                <img src="img/correto.png">
+                            </span>
+                        </div>`;
+                    }else {
+                     el.style.display =  'none';
+                    }
+
+                //configurando o click <-- lembrando que não é um handle, pois é temporario
+                this.sel('.controls').onclick = (e) => {
+                    var el = e.currentTarget.parentNode,
+                    type = e.target.parentNode.getAttribute('data-type');
+                    type === 'e' ? this.errada(el) : this.correta(el);       
+                }
+             });
+        });
+    }
+
+    //atualiza as amostras das cias
+    update(i){
+        this.sel('.dicas-flex .dica-item').forEach((el, i) =>{
+            el.style.width =  '80px';
+            el.style.display =  '';
+            el.innerHTML = ++i;
+        })
     }
 }

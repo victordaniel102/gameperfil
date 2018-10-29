@@ -1,27 +1,31 @@
 class partida{
-  constructor(qnt) {
-    this.qntParticipante = qnt;
-    this.valorDaVitoria = 10;
-    this.rodadas = [];
-    this.participante;
-  }
-
-  iniciarPartida(player_names) {
-    this.participante = new Array(this.qntParticipante);
-    this.nomes = player_names.sort((a, b) => { return 0.5 - Math.random() });
-
-    for(let x in this.nomes){
-      this.participante[x] = new participante(this.nomes[x], x, 0);
+    constructor(names) {
+        this.players = names;
+        this.valorDaVitoria = 10;
+        this.rodadas = [];
+        this.participante;
     }
 
-    // apartir de agora a Partida esta em andamento
-    this.iniciarRodada();
-  }
+    iniciarPartida() {
+        this.nomes = this.players.sort((a, b) => { return 0.5 - Math.random() });
+        for(let x in this.nomes){
+            this.players[x] = new participante(this.nomes[x], x, 0);
+        }
+    }
 
+    sortPlayers(){
+        //eu iria fazer um sort, mas o metódo chega  ser maior que isto
+        var a = [], pl = this.players.length;
+        for(let i = 0; i < pl; i++){
+            i === (pl - 1) ? a[i] = this.players[0] : a[i] = this.players[i + 1];
+        }
+        this.players = a;
+    }
 
-  iniciarRodada(){
-    //ate agora só tem uma rodada entao...
-    this.rodadas[0] = new rodada(this.participante);
-    this.rodadas[0].iniciarRodada();
-  }
+    iniciarRodada(i){
+        this.rodadas[i] = new rodada(this.players);
+        this.rodadas[i].iniciarRodada();
+        //reoordenando os jogadores
+        this.sortPlayers();
+    }
 }
