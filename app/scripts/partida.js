@@ -3,7 +3,7 @@ class partida{
         this.players = names;
         this.valorDaVitoria = 10;
         this.rodadas = [];
-        this.participante;
+        this.perfilsUsados = [];
     }
 
     iniciarPartida() {
@@ -15,15 +15,15 @@ class partida{
 
     sortPlayers(){
         //eu iria fazer um sort, mas o metódo chega  ser maior que isto
-        var a = [], pl = this.players.length;
-        for(let i = 0; i < pl; i++){
-            i === (pl - 1) ? a[i] = this.players[0] : a[i] = this.players[i + 1];
+        var a = [], pl = this.players;
+        for(let i = 0; i < pl.length; i++){
+            i === (pl.length - 1) ? a[i] = pl[0] : a[i] = pl[i + 1];
         }
         this.players = a;
     }
 
     iniciarRodada(i){
-        this.rodadas[i] = new rodada(this.players);
+        this.rodadas[i] = new rodada(this.players, this.perfilsUsados);
         this.rodadas[i].iniciarRodada();
         //reoordenando os jogadores
         this.sortPlayers();

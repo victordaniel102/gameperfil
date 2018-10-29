@@ -56,6 +56,8 @@ class Ui
     setRodada(){
         this.partida.iniciarRodada(this.turno);
         this.rodada = this.partida.rodadas[this.turno];
+        this.partida.perfilsUsados.push(this.rodada.perfil.nome);
+        console.log(this.partida)
         this.setHtml(
             this.rodada.mediador,  
             this.rodada.jogador, 
