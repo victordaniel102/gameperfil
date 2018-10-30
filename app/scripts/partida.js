@@ -33,12 +33,17 @@ class partida{
     finalizarRodada(r){
         r.jogador.placar += r.pontuacao;
         r.jogador.placar <= this.valorDaVitoria ? this.finalizada : this.finalizada = true;
+
         r.mediador.placar += (r.dicasUsadas.length - r.pontuacao);
+        r.mediador.placar <= this.valorDaVitoria ? this.finalizada : this.finalizada = true;
+
         r.finalizada = true;
-        console.log(this.finalizada)
     }
 
     updateRodada(r){
+        var t = true;
         r.pontuacao -= 1;
+        if(r.pontuacao === 0) t = false;
+        return t;
     }
 }

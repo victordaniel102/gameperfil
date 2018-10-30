@@ -67,19 +67,23 @@ class Ui
     errada(el, p){
         el.classList.add('errada');
         this.update();
-        this.partida.updateRodada(this.rodada);
+        if(!this.partida.updateRodada(this.rodada)){
+            this.correta();
+        }
     }
 
     correta(el){
-        el.classList.add('correta');
+        if(el) {
+            this.partida.updateRodada(this.rodada);
+            el.classList.add('correta');
+        }
+
         this.turno++;
         this.update();
         this.cardReset();
 
-        this.partida.updateRodada(this.rodada);
         this.partida.finalizarRodada(this.rodada);
-        console.log(this.rodada);
-        this.setRodada();
+        this.partida.finalizada ? this.fimPartida() : this.setRodada();
     }
 
     //muda as informações do html
@@ -119,9 +123,9 @@ class Ui
 
         setTimeout(() => {
             c.innerHTML = '';
+            this.clikar_cartas = true;
         }, 1900);
 
-        this.clikar_cartas = true;
         this.sel('.flipper').forEach((el) =>{
             el.style.transform = "rotateY(0deg)";
         });
@@ -163,6 +167,10 @@ class Ui
                 }
              });
         });
+    }
+
+    fimPartida(){
+        alert('jogo acabou, ganhou porra')
     }
 
     //atualiza as amostras das cias
