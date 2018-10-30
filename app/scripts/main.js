@@ -107,12 +107,20 @@ class Ui
     //gira a carta e mostra as dicas com o perfil
     cardFlip(el)
     {
+        this.sel('.header')[1].textContent = 'Escolha um número';
         el.style.transform = "rotateY(180deg)";
         this.showDicas();
     }
 
     cardReset()
     {
+        var c = this.sel('.dicas-flex');
+            c.classList.add('anim');
+
+        setTimeout(() => {
+            c.innerHTML = '';
+        }, 1900);
+
         this.clikar_cartas = true;
         this.sel('.flipper').forEach((el) =>{
             el.style.transform = "rotateY(0deg)";
@@ -121,7 +129,9 @@ class Ui
 
     //cria as dicas
     showDicas(){
-        var c = this.sel('.dicas-flex'); 
+        var c = this.sel('.dicas-flex');
+            c.classList.remove('anim');
+
         this.dicas.forEach((e, i) => {
            var el = `<div class="dica-item" data-dica="${e.texto}">${++i}</div>`;
            c.innerHTML += el;
