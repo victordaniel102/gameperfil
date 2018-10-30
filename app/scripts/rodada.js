@@ -35,15 +35,8 @@ class rodada {
 		return b;
 	}
 
-	iniciarRodada(){
+	setRodada(){
 		this.sortearPerfil();
-	}
-
-	finalziarRodada(){
-		this.finalizada = true;
-	}
-
-	tentarAcerto(dica, jogador){
-		//coming soon
+		this.pontuacao = this.dicasUsadas.length;
 	}
 }

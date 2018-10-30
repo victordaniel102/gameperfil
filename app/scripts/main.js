@@ -57,7 +57,6 @@ class Ui
         this.partida.iniciarRodada(this.turno);
         this.rodada = this.partida.rodadas[this.turno];
         this.partida.perfilsUsados.push(this.rodada.perfil.nome);
-        console.log(this.partida)
         this.setHtml(
             this.rodada.mediador,  
             this.rodada.jogador, 
@@ -68,14 +67,18 @@ class Ui
     errada(el, p){
         el.classList.add('errada');
         this.update();
+        this.partida.updateRodada(this.rodada);
     }
 
     correta(el){
         el.classList.add('correta');
         this.turno++;
         this.update();
+        this.cardReset();
 
-        this.rodada.finalziarRodada();
+        this.partida.updateRodada(this.rodada);
+        this.partida.finalizarRodada(this.rodada);
+        console.log(this.rodada);
         this.setRodada();
     }
 
@@ -108,6 +111,14 @@ class Ui
         this.showDicas();
     }
 
+    cardReset()
+    {
+        this.clikar_cartas = true;
+        this.sel('.flipper').forEach((el) =>{
+            el.style.transform = "rotateY(0deg)";
+        });
+    }
+
     //cria as dicas
     showDicas(){
         var c = this.sel('.dicas-flex'); 
@@ -134,12 +145,11 @@ class Ui
                     }else {
                      el.style.display =  'none';
                     }
-
                 //configurando o click <-- lembrando que não é um handle, pois é temporario
                 this.sel('.controls').onclick = (e) => {
                     var el = e.currentTarget.parentNode,
                     type = e.target.parentNode.getAttribute('data-type');
-                    type === 'e' ? this.errada(el) : this.correta(el);       
+                    type === 'e' ? this.errada(el) : this.correta(el);
                 }
              });
         });

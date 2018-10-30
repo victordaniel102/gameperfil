@@ -4,6 +4,7 @@ class partida{
         this.valorDaVitoria = 10;
         this.rodadas = [];
         this.perfilsUsados = [];
+        this.finalizada = false;
     }
 
     iniciarPartida() {
@@ -24,8 +25,20 @@ class partida{
 
     iniciarRodada(i){
         this.rodadas[i] = new rodada(this.players, this.perfilsUsados);
-        this.rodadas[i].iniciarRodada();
+        this.rodadas[i].setRodada();
         //reoordenando os jogadores
         this.sortPlayers();
+    }
+
+    finalizarRodada(r){
+        r.jogador.placar += r.pontuacao;
+        r.jogador.placar <= this.valorDaVitoria ? this.finalizada : this.finalizada = true;
+        r.mediador.placar += (r.dicasUsadas.length - r.pontuacao);
+        r.finalizada = true;
+        console.log(this.finalizada)
+    }
+
+    updateRodada(r){
+        r.pontuacao -= 1;
     }
 }
