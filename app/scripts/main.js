@@ -91,7 +91,7 @@ class Ui
     }
 
     setRodada(){
-        this.partida.iniciarRodada(this.partida.turno);
+        this.partida.iniciarRodada(this.partida.rodadaNum);
         this.rodada = this.partida.rodadas[this.partida.turno];
         this.partida.perfilsUsados.push(this.rodada.perfil.nome);
         this.setHtml(
@@ -104,22 +104,30 @@ class Ui
     errada(el, p){
         el.classList.add('errada');
         this.update();
-        //é errada, porém é a ultima ele reinicia o html
-        if(this.partida.errada(this.rodada)){
-            //reset html
+        var chekout = this.partida.rodadaNum, chekin;
+        this.partida.tentarAcerto(this.partida.rodadaNum, false);    
+        if(this.partida.rodadas[chekout].finalizada){
+            console.log('finalizada')
+           //reset html
            this.update();
            this.cardReset();
        }
    }
 
    correta(el){
-    el.classList.add('correta');
-        //isso é pra mudar o html, ele não faz nenhuma operação fora da ui
-        this.partida.correta(this.rodada);
-        this.partida.finalizada ? this.fimPartida() : this.setRodada();
+        el.classList.add('correta');
+        this.partida.tentarAcerto(this.partida.rodadaNum, true);        
+        if(this.partida.finalizada){
+            this.fimPartida();
+        }
         //reset html
         this.update();
         this.cardReset();
+        this.setHtml(
+            this.partida.rodadas[this.partida.rodadaNum].mediador,  
+            this.partida.rodadas[this.partida.rodadaNum].jogador, 
+            this.partida.rodadas[this.partida.rodadaNum].perfil
+        );
     }
 
     //muda as informações do html
@@ -173,9 +181,9 @@ class Ui
         c.classList.remove('anim');
 
         this.dicas.forEach((e, i) => {
-         var el = `<div class="dica-item" data-dica="${e.texto}">${++i}</div>`;
-         c.innerHTML += el;
-     });
+           var el = `<div class="dica-item" data-dica="${e.texto}">${++i}</div>`;
+           c.innerHTML += el;
+       });
 
         c.addEventListener('click', (e) =>{
             if(e.target.classList.contains('dica-item') && !e.target.classList.contains('errada'))
@@ -193,8 +201,8 @@ class Ui
                         </span>
                         </div>`;
                     }else {
-                       el.style.display =  'none';
-                   }
+                     el.style.display =  'none';
+                 }
                 //configurando o click <-- lembrando que não é um handle, pois é temporario
                 this.sel('.controls').onclick = (e) => {
                     var el = e.currentTarget.parentNode,

@@ -6,6 +6,7 @@ class partida{
         this.perfilsUsados = [];
         this.finalizada = false;
         this.turno = 0;
+        this.rodadaNum = 0;
     }
 
     iniciarPartida() {
@@ -39,6 +40,9 @@ class partida{
         r.mediador.placar <= this.valorDaVitoria ? this.finalizada : this.finalizada = true;
 
         r.finalizada = true;
+        
+        this.rodadaNum += 1;
+        this.iniciarRodada(this.rodadaNum);
     }
 
     updateRodada(r){
@@ -48,17 +52,18 @@ class partida{
         return t;
     }
 
-    errada(rodada){
-        //muda a rodada e finaliza se for a ultima
-        if(!this.updateRodada(rodada)){
-            this.finalizarRodada(rodada);
-            return true;
-        };
-    }
-
-    correta(rodada){
-        this.turno++;
-        this.updateRodada(rodada);
-        this.finalizarRodada(rodada);
+    tentarAcerto(rNum, type){
+        console.log(this.rodadas)
+        //certa
+        if(type){
+            this.turno++;
+            this.updateRodada(this.rodadas[rNum]);
+            this.finalizarRodada(this.rodadas[rNum]);
+        }else { // <-- errada
+            //muda a rodada e finaliza se for a ultima
+            if(!this.updateRodada(this.rodadas[rNum])){
+                this.finalizarRodada(this.rodadas[rNum]);
+            }
+        }
     }
 }
