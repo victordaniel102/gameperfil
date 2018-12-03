@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Jogo Perfil</title>
+   <link rel="stylesheet" href="css/iniciar.css" type="text/css">
+</head>
+<body>
+   <div class="initial">
+      <div class="play">
+         <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"width="96" height="40"viewBox="0 0 252 252"style="fill:#ffffff;">
+               <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                  <path d="M0,252v-252h252v252z" fill="none"></path>
+                  <g id="two_x5F_tone" fill="#ffffff">
+                     <path d="M62.2545,126l58.4955,-58.4955l-15.75,-15.75l-74.2455,74.2455l74.2455,74.2455l15.75,-15.75z"></path>
+                     <rect x="5" y="11" transform="scale(10.5,10.5)" width="16" height="2"></rect>
+                  </g>
+               </g>
+            </svg>
+         </a>
+      </div>
+   </div>
+   <div class="players">
+      <span class="header">Perfis</span>
+      <div class="dicasCrud"></div>
+      <div class="togame">
+         <button>Criar novo perfil</button>
+      </div>
+   </div>
+   <script> require('./renderer.js')</script>
+   <script type="text/javascript" src="scripts/main.js"></script>
+   <script type="text/javascript" src="scripts/crudPerfil.js"></script>
+   <script type="text/javascript">
+      window.onload = function(){
+         new Ui().initCrud();
+      }
+   </script>
+</body>
+</html>

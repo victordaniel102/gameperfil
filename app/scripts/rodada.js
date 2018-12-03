@@ -13,8 +13,8 @@ class rodada {
   		//banco json
   		const fs = require('fs');
   		const banco = JSON.parse(fs.readFileSync("./dataBase/Data.json", "utf8"));
-
   		var collection = banco.perfis, perfilJson, t = false;
+  		
   		while(t === false){
   			perfilJson = collection[Math.floor(Math.random() * collection.length)];
   			t = this.teste(perfilJson);

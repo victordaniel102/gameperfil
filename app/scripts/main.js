@@ -3,7 +3,6 @@ class Ui
     constructor()
     {
         this.clikar_cartas = true;
-        this.turno = 0;
     }
 
     init()
@@ -21,6 +20,44 @@ class Ui
         {
             this.clickJogar(this.sel('.rd-text'))
         });
+    }
+
+    initCrud()
+    {
+        this.crud = new crudPerfil();
+        this.printPerfis(this.crud.loadPerfis());
+    }
+
+    printPerfis(perfis){
+        perfis.forEach((el, i) =>{
+            var crudEl = 
+            `<div class="dica-crud" data-name="${el.nome}">
+            <span class="name-perfil">${el.nome}</span>
+            <div class="opts">
+            <div class="edit-perfil">
+            <img src="img/edit.png">
+            </div>
+            <div class="del-perfil">
+            <img src="img/errado.png">
+            </div>
+            </div>
+            </div>`;
+
+            this.sel('.dicasCrud').innerHTML += crudEl;
+        });
+
+        //delete
+        this.sel('.dica-crud').forEach((e) => {
+            e.querySelector('.del-perfil').addEventListener('click', event => {
+                var id = e.getAttribute('data-name');
+                this.delPerfil(e, id);
+            })
+        })
+    }
+
+    delPerfil(el, id){
+        el.remove();
+        this.crud.removePerfil(this.crud.banco, id);        
     }
 
     sel(element)
@@ -54,36 +91,35 @@ class Ui
     }
 
     setRodada(){
-        this.partida.iniciarRodada(this.turno);
-        this.rodada = this.partida.rodadas[this.turno];
+        this.partida.iniciarRodada(this.partida.turno);
+        this.rodada = this.partida.rodadas[this.partida.turno];
         this.partida.perfilsUsados.push(this.rodada.perfil.nome);
         this.setHtml(
             this.rodada.mediador,  
             this.rodada.jogador, 
             this.rodada.perfil
-        );
+            );
     }
 
     errada(el, p){
         el.classList.add('errada');
         this.update();
-        if(!this.partida.updateRodada(this.rodada)){
-            this.correta();
-        }
-    }
+        //é errada, porém é a ultima ele reinicia o html
+        if(this.partida.errada(this.rodada)){
+            //reset html
+           this.update();
+           this.cardReset();
+       }
+   }
 
-    correta(el){
-        if(el) {
-            this.partida.updateRodada(this.rodada);
-            el.classList.add('correta');
-        }
-
-        this.turno++;
+   correta(el){
+    el.classList.add('correta');
+        //isso é pra mudar o html, ele não faz nenhuma operação fora da ui
+        this.partida.correta(this.rodada);
+        this.partida.finalizada ? this.fimPartida() : this.setRodada();
+        //reset html
         this.update();
         this.cardReset();
-
-        this.partida.finalizarRodada(this.rodada);
-        this.partida.finalizada ? this.fimPartida() : this.setRodada();
     }
 
     //muda as informações do html
@@ -119,7 +155,7 @@ class Ui
     cardReset()
     {
         var c = this.sel('.dicas-flex');
-            c.classList.add('anim');
+        c.classList.add('anim');
 
         setTimeout(() => {
             c.innerHTML = '';
@@ -134,12 +170,12 @@ class Ui
     //cria as dicas
     showDicas(){
         var c = this.sel('.dicas-flex');
-            c.classList.remove('anim');
+        c.classList.remove('anim');
 
         this.dicas.forEach((e, i) => {
-           var el = `<div class="dica-item" data-dica="${e.texto}">${++i}</div>`;
-           c.innerHTML += el;
-       });
+         var el = `<div class="dica-item" data-dica="${e.texto}">${++i}</div>`;
+         c.innerHTML += el;
+     });
 
         c.addEventListener('click', (e) =>{
             if(e.target.classList.contains('dica-item') && !e.target.classList.contains('errada'))
@@ -149,23 +185,23 @@ class Ui
                         el.textContent = el.getAttribute('data-dica');
                         el.innerHTML += 
                         `<div class="controls">
-                            <span data-type="e">
-                                <img src="img/errado.png">
-                            </span> 
-                            <span data-type="c">
-                                <img src="img/correto.png">
-                            </span>
+                        <span data-type="e">
+                        <img src="img/errado.png">
+                        </span> 
+                        <span data-type="c">
+                        <img src="img/correto.png">
+                        </span>
                         </div>`;
                     }else {
-                     el.style.display =  'none';
-                    }
+                       el.style.display =  'none';
+                   }
                 //configurando o click <-- lembrando que não é um handle, pois é temporario
                 this.sel('.controls').onclick = (e) => {
                     var el = e.currentTarget.parentNode,
                     type = e.target.parentNode.getAttribute('data-type');
                     type === 'e' ? this.errada(el) : this.correta(el);
                 }
-             });
+            });
         });
     }
 

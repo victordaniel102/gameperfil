@@ -314,3 +314,58 @@ body {
     0% {transform: translateX(-100vw);}
     100% {transform: translateX(0);}
 }
+.name-perfil {
+	color: #fff;
+	font-family: 'Calibri', sans-serif;
+	font-size: 23px;
+}
+
+.dica-crud {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 10px;
+	background-color: #394a51;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+.opts {
+	display: flex;
+}
+.opts img {
+	width: 23px;
+	cursor: pointer;
+	transition: all .4s ease;
+	margin: 0 10px 0 10px;
+}
+.opts img:hover {
+	transform: scale(1.5);
+}
+.dicasCrud {
+	width: 500px;
+	height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 30px;
+	margin: auto;
+	margin-top: 30px;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}

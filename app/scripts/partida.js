@@ -5,6 +5,7 @@ class partida{
         this.rodadas = [];
         this.perfilsUsados = [];
         this.finalizada = false;
+        this.turno = 0;
     }
 
     iniciarPartida() {
@@ -45,5 +46,19 @@ class partida{
         r.pontuacao -= 1;
         if(r.pontuacao === 0) t = false;
         return t;
+    }
+
+    errada(rodada){
+        //muda a rodada e finaliza se for a ultima
+        if(!this.updateRodada(rodada)){
+            this.finalizarRodada(rodada);
+            return true;
+        };
+    }
+
+    correta(rodada){
+        this.turno++;
+        this.updateRodada(rodada);
+        this.finalizarRodada(rodada);
     }
 }
