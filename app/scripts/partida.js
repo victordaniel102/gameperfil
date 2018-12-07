@@ -10,29 +10,40 @@ class partida{
     }
 
     iniciarPartida() {
-        this.nomes = this.players.sort((a, b) => { return 0.5 - Math.random() });
-        for(let x in this.nomes){
-            this.players[x] = new participante(this.nomes[x], x, 0);
+
+        if(this.players.length >= 2 && this.players.length <= 4){
+            this.nomes = this.players.sort((a, b) => { return 0.5 - Math.random() });
+            for(let x in this.nomes){
+                this.players[x] = new participante(this.nomes[x], x, 0);
+            }
         }
+        else return 'error';
     }
 
     sortPlayers(){
         //eu iria fazer um sort, mas o metódo chega  ser maior que isto
-        var a = [], pl = this.players;
+         var a = [], pl = this.players;
         for(let i = 0; i < pl.length; i++){
             i === (pl.length - 1) ? a[i] = pl[0] : a[i] = pl[i + 1];
         }
         this.players = a;
     }
 
-    iniciarRodada(i){
-        this.rodadas[i] = new rodada(this.players, this.perfilsUsados);
-        this.rodadas[i].setRodada();
-        //reoordenando os jogadores
+    iniciarRodada(test){
+        if(!test){
+            this.rodadas[this.rodadaNum] = new rodada(this.players, this.perfilsUsados);
+            this.rodadas[this.rodadaNum].setRodada();
+        }else {
+            this.rodadas[this.rodadaNum] = new rodada(this.players);
+            this.rodadas[this.rodadaNum].setRodada(['dani', 'lima', 'clima', 'clima', 'clima', 'clima', 'clima']);
+        }
+        // //reoordenando os jogadores
         this.sortPlayers();
     }
 
-    finalizarRodada(r){
+    finalizarRodada(r, test){
+        //console.log(r.jogador);
+        //console.log(r.mediador);
         r.jogador.placar += r.pontuacao;
         r.jogador.placar <= this.valorDaVitoria ? this.finalizada : this.finalizada = true;
 
@@ -40,9 +51,13 @@ class partida{
         r.mediador.placar <= this.valorDaVitoria ? this.finalizada : this.finalizada = true;
 
         r.finalizada = true;
-        
         this.rodadaNum += 1;
-        this.iniciarRodada(this.rodadaNum);
+        
+        if(test){
+            this.iniciarRodada(test);
+        }else {
+            this.iniciarRodada();
+        }
     }
 
     updateRodada(r){
@@ -52,17 +67,31 @@ class partida{
         return t;
     }
 
-    tentarAcerto(rNum, type){
-        console.log(this.rodadas)
-        //certa
-        if(type){
-            this.turno++;
-            this.updateRodada(this.rodadas[rNum]);
-            this.finalizarRodada(this.rodadas[rNum]);
-        }else { // <-- errada
-            //muda a rodada e finaliza se for a ultima
-            if(!this.updateRodada(this.rodadas[rNum])){
-                this.finalizarRodada(this.rodadas[rNum]);
+    tentarAcerto(type, test){
+        if(arguments.length == 2){
+             //certa
+             if(type){
+                this.turno++;
+                this.updateRodada(this.rodadas[this.rodadaNum]);
+                this.finalizarRodada(this.rodadas[this.rodadaNum], test);
+            }else { // <-- errada
+                //muda a rodada e finaliza se for a ultima
+                if(!this.updateRodada(this.rodadas[this.rodadaNum])){
+                 this.finalizarRodada(this.rodadas[this.rodadaNum], test);
+                }
+             }
+         
+        }else {
+            //certa
+            if(type){
+                this.turno++;
+                this.updateRodada(this.rodadas[this.rodadaNum]);
+                this.finalizarRodada(this.rodadas[this.rodadaNum]);
+            }else { // <-- errada
+                //muda a rodada e finaliza se for a ultima
+                if(!this.updateRodada(this.rodadas[this.rodadaNum])){
+                    this.finalizarRodada(this.rodadas[this.rodadaNum]);
+                }
             }
         }
     }

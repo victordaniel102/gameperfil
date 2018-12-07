@@ -4,7 +4,7 @@ class rodada {
 		this.perfil;
 		this.dicasUsadas = [];
 		this.perfis = perfis;
-
+		this.pontuacao = 0;
 		this.mediador = jogadores[0];
 		this.jogador = jogadores[1];
 	}
@@ -26,7 +26,6 @@ class rodada {
 		//define o perfil
 		this.perfil = new perfil(perfilJson.categoria, perfilJson.nome, this.dicasUsadas);
 	}
-
 	teste(p){
 		var b = true;
 		for(let x in this.perfis){
@@ -35,8 +34,16 @@ class rodada {
 		return b;
 	}
 
-	setRodada(){
-		this.sortearPerfil();
-		this.pontuacao = this.dicasUsadas.length;
+	setRodada(dicas){
+		if(arguments.length == 0){
+			this.sortearPerfil();
+			this.pontuacao = this.dicasUsadas.length;
+		}
+		if(arguments.length == 1){
+			this.dicasUsadas =  dicas;
+			this.perfil = new perfil('pessoa', 'dani', dicas);
+			this.pontuacao = this.dicasUsadas.length;
+		}
 	}
+	
 }
